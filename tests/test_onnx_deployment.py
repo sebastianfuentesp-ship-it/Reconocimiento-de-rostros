@@ -23,6 +23,9 @@ def test_preprocessing_matches_training_profile(size):
 
 
 def test_standalone_vercel_package_upload_without_torch_import():
+    for name in ("app.js", "styles.css"):
+        assert (ROOT / "deploy/vercel/public/static" / name).read_bytes() == (
+            ROOT / "deploy/vercel/app/static" / name).read_bytes()
     script = '''
 import io, sys
 sys.path.insert(0, sys.argv[1])

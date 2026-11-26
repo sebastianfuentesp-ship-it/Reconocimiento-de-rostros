@@ -78,7 +78,12 @@ def main():
                       .replace("12 MB", "4 MB"), encoding="utf-8")
     web = output / "app/web.py"
     web.write_text(web.read_text(encoding="utf-8").replace("12 * 1024", "4 * 1024")
-                   .replace("12 MB", "4 MB"), encoding="utf-8")
+                   .replace("12 MB", "4 MB")
+                   .replace("from emotion_recognition.inference import EmotionRecognitionService",
+                            "from emotion_recognition.inference_onnx import OnnxEmotionService as EmotionRecognitionService"),
+                   encoding="utf-8")
+    # Vercel sirve los archivos estáticos desde public/; mantener sus URL /static/.
+    shutil.copytree(output / "app/static", output / "public/static", dirs_exist_ok=True)
     print(json.dumps(report, indent=2))
 
 

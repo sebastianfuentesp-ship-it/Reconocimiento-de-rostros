@@ -13,7 +13,7 @@ from emotion_recognition.inference_core import NoFaceFound
 
 def default_service():
     # La versión ONNX no importa PyTorch: el motor local se carga solo si se usa.
-    from emotion_recognition.inference import EmotionRecognitionService
+    from emotion_recognition.inference_onnx import OnnxEmotionService as EmotionRecognitionService
     return EmotionRecognitionService()
 
 
