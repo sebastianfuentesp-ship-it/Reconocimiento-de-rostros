@@ -103,7 +103,8 @@ h1 em {
 /* Area principal: fotografia a la izquierda y resultados a la derecha. */
 .workspace {
   display: grid;
-  grid-template-columns: 1.12fr 1fr;
+  /* El minimo cero impide que una foto ancha expulse la columna de resultados. */
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
   background: #fffefa;
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -112,6 +113,7 @@ h1 em {
 }
 
 .photo-panel {
+  min-width: 0;
   padding: 25px 29px;
   border-right: 1px solid var(--line)
 }
@@ -121,7 +123,8 @@ h1 em {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 22px
+  margin-bottom: 22px;
+  flex-wrap: wrap
 }
 
 .section-title h2 {
@@ -143,6 +146,7 @@ h1 em {
 }
 
 .drop-zone {
+  min-width: 0;
   border: 1px dashed #b7c2b7;
   border-radius: 9px;
   min-height: 300px;
@@ -232,13 +236,17 @@ h1 em {
 .image-stage {
   line-height: 0;
   position: relative;
-  max-width: 100%;
+  /* JS usa las dimensiones reales para que imagen y recuadros compartan area. */
+  width: min(calc(100% - 24px), var(--preview-width, 360px));
+  aspect-ratio: var(--preview-ratio, 1);
+  min-width: 0;
+  flex: 0 1 auto;
   margin: 12px
 }
 
 .image-stage img {
-  max-width: 100%;
-  max-height: 360px;
+  width: 100%;
+  height: 100%;
   display: block;
   object-fit: contain;
   border-radius: 5px
@@ -263,6 +271,7 @@ h1 em {
 }
 
 .face-number {
+  white-space: nowrap;
   position: absolute;
   left: -2px;
   top: -19px;
@@ -285,12 +294,15 @@ h1 em {
 }
 
 .file-detail span {
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap
 }
 
 .text-button {
+  flex-shrink: 0;
+  min-height: 44px;
   border: 0;
   background: none;
   padding: 4px 0;
@@ -309,6 +321,9 @@ h1 em {
 }
 
 .crop-option input {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
   accent-color: var(--green);
   margin-top: 4px
 }
@@ -433,10 +448,13 @@ h1 em {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 15px
+  gap: 15px;
+  flex-wrap: wrap
 }
 
 .emotion-line h3 {
+  min-width: 0;
+  overflow-wrap: anywhere;
   font: normal 38px/1.1 Georgia,serif;
   letter-spacing: -1px;
   margin: 4px 0 6px;
@@ -444,6 +462,7 @@ h1 em {
 }
 
 .top-score {
+  flex-shrink: 0;
   text-align: right
 }
 
@@ -518,6 +537,7 @@ h1 em {
 }
 
 .face-tab {
+  min-height: 44px;
   background: none;
   border: 1px solid var(--line);
   border-radius: 4px;
@@ -574,7 +594,7 @@ h1 em {
     display: none
   }
   .workspace {
-    grid-template-columns: 1fr
+    grid-template-columns: minmax(0, 1fr)
   }
   .photo-panel {
     border-right: 0;
@@ -591,6 +611,7 @@ h1 em {
     margin-top: 18px
   }
   .page-footer {
+    flex-wrap: wrap;
     gap: 20px;
     font-size: 9px
   }
@@ -600,4 +621,21 @@ h1 em {
   .drop-zone {
     min-height: 265px
   }
+}
+
+/* Teléfonos estrechos: más espacio útil y controles legibles al tacto. */
+@media(max-width:480px) {
+  .topbar { padding: 16px; gap: 12px; flex-wrap: wrap; }
+  .local { font-size: 12px; }
+  main { padding: 24px 12px 16px; }
+  h1 { font-size: clamp(32px, 9vw, 42px); letter-spacing: -1px; }
+  .intro-copy { font-size: 15px; }
+  .photo-panel, .results-panel { padding: 18px 16px; }
+  .formats, .result-status { font-size: 11px; }
+  .crop-option, .analyze-button, .file-button { font-size: 14px; }
+  .file-button { min-height: 44px; padding: 10px 18px; }
+  .empty-photo p, .score-label, .face-description { font-size: 13px; }
+  .crop-option small, .result-footer p, .score-note { font-size: 11px; }
+  .score-row { margin-bottom: 14px; }
+  .result-footer { margin-top: 20px; }
 }

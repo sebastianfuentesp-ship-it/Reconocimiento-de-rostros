@@ -10,6 +10,16 @@ let previewUrl = null;
 let prediction = null;
 let busy = false;
 
+// Ajustar la vista a la proporcion real, sin ensanchar las columnas del grid.
+// El mismo contenedor delimita la foto y las coordenadas de los rostros.
+$("preview").addEventListener("load", () => {
+  const image = $("preview");
+  if (!image.naturalWidth || !image.naturalHeight) return;
+  const ratio = image.naturalWidth / image.naturalHeight;
+  $("image-stage").style.setProperty("--preview-ratio", String(ratio));
+  $("image-stage").style.setProperty("--preview-width", `${Math.min(image.naturalWidth, 360 * ratio)}px`);
+});
+
 // PASO 1. Limpiar el resultado al cambiar de fotografía o modo de recorte.
 function resetResults() {
   prediction = null;
