@@ -1,0 +1,41 @@
+COMPARACION A B C D POR MENOR VAL_LOSS
+
+Lectura de resultados e historiales guardados; sin entrenamiento, inferencia ni evaluacion de test.
+Misma validacion2457 y manifiesto. Seleccion de checkpoint por val_loss;
+comparacion entre variantes por F1 macro.
+
+A Baseline: epoca=4; parada=12; val_loss=0.471551; train_acc=86.6796%; val_acc=83.4351%; brecha=3.2445pp; F1macro=0.745876; recallmacro=73.2345%.
+resnet18_dacl_baseline_20261125_215652_679
+B Suavizado: epoca=7; parada=15; val_loss=0.457585; train_acc=92.8659%; val_acc=85.1445%; brecha=7.7214pp; F1macro=0.773550; recallmacro=75.2029%.
+resnet18_dacl_suavizado_20261125_213647_482
+C Pesos: epoca=7; parada=15; val_loss=0.529802; train_acc=92.1015%; val_acc=83.2723%; brecha=8.8292pp; F1macro=0.764196; recallmacro=77.3952%.
+resnet18_dacl_pesos_20261125_211819_252
+D Suavizado y pesos: epoca=28; parada=36; val_loss=0.549154; train_acc=99.5108%; val_acc=85.7957%; brecha=13.7151pp; F1macro=0.782546; recallmacro=79.6107%.
+resnet18_dacl_suavizado_pesos_20261125_223554_776
+
+SOBREAJUSTE DEL COMBINADO
+D mantiene una brecha grande train/val y empeora val_loss de epoca28 a36 mientras mejora train; no elimino el sobreajuste. La comparacion del error de clasificacion aun favorece D en F1 macro, accuracy y recall macro.
+Epoca28: train99.5108% / val85.7957%, brecha13.7151pp.
+Epoca36: train99.7350% / val85.2259%, brecha14.5091pp.
+Val_loss:0.549154 ->0.562624. Train_loss:0.472928 ->0.470046.
+Se conserva epoca28, no la36 ni el pico de F1 de otra epoca.
+
+RESPECTO A B
+F1macro:+0.008997; accuracy:+0.6512pp (16 aciertos adicionales).
+Recallmacro:+4.4077pp. La menor val_loss sigue siendo B.
+D mejora F1 de cinco clases respecto a B; empeora sorpresa y miedo.
+Miedo: recall B45.61%/D68.42%; precision B92.86%/D51.32%.
+Mayor recall no garantiza mejor F1 en una clase.
+
+CONCLUSION
+B conserva menor perdida de validacion y brecha menor.
+D es el ganador descriptivo segun el criterio acordado de F1macro,
+aunque mantiene sobreajuste marcado. La brecha por si sola no lo invalida.
+No cambiar el criterio de ganador despues de ver resultados sin declararlo.
+
+LIMITES
+Train accuracy se acumula durante aprendizaje con aumentos; val usa modo eval y recorte fijo. No son dos evaluaciones identicas.
+Train loss tiene objetivos distintos por caso: no comparar directamente con val_loss sin pesos ni suavizado.
+Una semilla y validacion usada para seleccion; no se afirma significacion ni superioridad en test.
+
+Resultados registrados; selector de fotos no modificado.

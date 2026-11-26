@@ -1,0 +1,921 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-11-26T05:51:06.139178+00:00",
+  "artifact_root": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts",
+  "completed_runs_count": 4,
+  "scope": "Lectura de resultados existentes y hash de archivos; sin entrenamiento, inferencia ni evaluación nueva. No se mueve ni borra ningún artefacto.",
+  "notes": [
+    "Los resultados son los ya guardados; una carpeta con métricas no acredita por sí sola que alcanzara todas las épocas solicitadas.",
+    "Una réplica exacta de métricas e historial con la misma semilla no es evidencia independiente.",
+    "Las pruebas técnicas/reducidas y HOG se conservan fuera del ranking CNN comparable.",
+    "El ranking y las comparaciones usan solo el manifiesto, partición y número de muestras del grupo de referencia; otros protocolos se conservan sin compararlos entre sí.",
+    "La época del checkpoint se obtiene del historial y criterio registrado; no se deserializan modelos.",
+    "El test no se consulta; los JSON de análisis guardados se transcriben con su procedencia.",
+    "La evaluación final B/D ya realizada se conserva por separado en Comparacion_final_test_B_D.json y .txt."
+  ],
+  "classification_reference": "resnet18_dacl_baseline_20261125_215652_679",
+  "comparable_cnn_ranking_by_macro_f1": [
+    "resnet18_dacl_suavizado_pesos_20261125_223554_776",
+    "resnet18_dacl_suavizado_20261125_213647_482",
+    "resnet18_dacl_pesos_20261125_211819_252",
+    "resnet18_dacl_baseline_20261125_215652_679"
+  ],
+  "runs": [
+    {
+      "name": "resnet18_dacl_baseline_20261125_215652_679",
+      "variant": "Baseline DACL; sin suavizado ni pesos de clase",
+      "run_path": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_baseline_20261125_215652_679",
+      "model_kind": "resnet18",
+      "technical_run": false,
+      "duplicate_saved_results_of": null,
+      "accuracy": 0.8343508343508343,
+      "macro_f1": 0.7458762115324118,
+      "balanced_accuracy": 0.7323447330537077,
+      "samples": 2457,
+      "split": "val",
+      "manifest_sha256": "4151a14522bf60a6ebac0508793dc86bd880c79b98581806ab93de7682bc8fc0",
+      "config_manifest_sha256": "4151a14522bf60a6ebac0508793dc86bd880c79b98581806ab93de7682bc8fc0",
+      "selected_C": null,
+      "epochs_recorded": 12,
+      "best_macro_f1_epoch": 10,
+      "best_macro_f1_history": {
+        "epoch": 10,
+        "phase": "fine_tune_all",
+        "train_loss": 0.10325730303769397,
+        "train_accuracy": 0.9673868732164697,
+        "train_macro_f1": 0.950528333855036,
+        "val_loss": 0.5106180097496893,
+        "val_accuracy": 0.8490028490028491,
+        "val_macro_f1": 0.7728596134575786,
+        "lr_head": 0.01,
+        "lr_layer4": null,
+        "next_lr_head": 0.01,
+        "next_lr_layer4": null,
+        "lr_reduced": false
+      },
+      "selected_checkpoint_epoch_from_history": 4,
+      "selected_checkpoint_history": {
+        "epoch": 4,
+        "phase": "fine_tune_all",
+        "train_loss": 0.382228297745992,
+        "train_accuracy": 0.8667957602935181,
+        "train_macro_f1": 0.782570606303615,
+        "val_loss": 0.4715514969039749,
+        "val_accuracy": 0.8343508343508343,
+        "val_macro_f1": 0.7458762115324118,
+        "lr_head": 0.01,
+        "lr_layer4": null,
+        "next_lr_head": 0.01,
+        "next_lr_layer4": null,
+        "lr_reduced": false
+      },
+      "maximum_accuracy_history": {
+        "epoch": 8,
+        "phase": "fine_tune_all",
+        "train_loss": 0.15823779614468375,
+        "train_accuracy": 0.9503668976763148,
+        "train_macro_f1": 0.9180256181913343,
+        "val_loss": 0.49952910011456075,
+        "val_accuracy": 0.8502238502238503,
+        "val_macro_f1": 0.7681742917885221,
+        "lr_head": 0.01,
+        "lr_layer4": null,
+        "next_lr_head": 0.01,
+        "next_lr_layer4": null,
+        "lr_reduced": false
+      },
+      "saved_metrics_match_history_selection": true,
+      "configuration": {
+        "command": "train-dacl-baseline",
+        "architecture": "resnet18",
+        "epochs": 60,
+        "warmup_epochs": 0,
+        "batch_size": 64,
+        "seed": 42,
+        "image_size": 224,
+        "lr": 0.01,
+        "momentum": 0.9,
+        "weight_decay": 0.0005,
+        "optimizer": "SGD",
+        "scheduler": "StepLR",
+        "step_size": 20,
+        "gamma": 0.1,
+        "patience": 8,
+        "selection_metric": "val_loss",
+        "fine_tune_from": "all",
+        "fine_tune_stages": [
+          "conv1",
+          "bn1",
+          "layer1",
+          "layer2",
+          "layer3",
+          "layer4",
+          "fc"
+        ],
+        "pretrained_source": "msceleb_dacl",
+        "initialization": {
+          "source": "msceleb_dacl",
+          "dataset": "MS-Celeb-1M (según autores de DACL)",
+          "path": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\data\\pretrained\\resnet18_msceleb_dacl.pth",
+          "sha256": "734341508e3ddbcd181e40da0173cf2c77cd0de3bc2455715cc1b7f42a63a6f6",
+          "size_bytes": 181511212,
+          "source_url": "https://drive.usercontent.google.com/download?id=16uPBWtSfVOJvlxMnb0xg6sOP3-zhHsx3&export=download&confirm=t",
+          "reference_url": "https://github.com/amirhfarzaneh/dacl/blob/c41e9e81de9b70a84cae3d7c19102b5095964d5b/README.md",
+          "attribution_note": "Archivo base MSCeleb enlazado para inicialización por los autores de DACL. El SHA256 coincide con el archivo base distribuido por DAN. No se dispone de una auditoría independiente de los datos originales de preentrenamiento.",
+          "hash_note": "SHA256 fijado a la descarga observada del enlace oficial; no es un hash publicado por los autores."
+        },
+        "preprocessing_profile": "dacl_baseline",
+        "normalization": {
+          "name": "dacl_baseline",
+          "mean": [
+            0.5752,
+            0.4495,
+            0.4012
+          ],
+          "std": [
+            0.2086,
+            0.1911,
+            0.1827
+          ]
+        },
+        "class_counts_train": {
+          "surprise": 1032,
+          "fear": 224,
+          "disgust": 573,
+          "happiness": 3816,
+          "sadness": 1585,
+          "anger": 563,
+          "neutral": 2019
+        },
+        "class_weights": null,
+        "class_weighting": "none",
+        "label_smoothing": 0.0,
+        "train_label_smoothing": 0.0,
+        "validation_label_smoothing": 0.0,
+        "train_loss_definition": "Cross entropy; ponderación=none; label_smoothing=0.0; media por ejemplo.",
+        "val_loss_definition": "Cross entropy sin suavizado ni pesos de clase (NLL).",
+        "precision": "float32",
+        "amp": false,
+        "amp_enabled": false,
+        "gradient_clip": null,
+        "early_stopping": true,
+        "min_epochs": 0,
+        "early_stopping_metric": "val_loss",
+        "early_stopping_mode": "min",
+        "train_samples": 9812,
+        "val_samples": 2457,
+        "test_used": false,
+        "warning": "Adaptación del baseline softmax de DACL; no es una reproducción exacta de su protocolo ni una garantía del resultado publicado.",
+        "paper_url": "https://openaccess.thecvf.com/content/WACV2021/papers/Farzaneh_Facial_Expression_Recognition_in_the_Wild_via_Deep_Attentive_Center_WACV_2021_paper.pdf",
+        "source_url": "https://github.com/amirhfarzaneh/dacl/tree/c41e9e81de9b70a84cae3d7c19102b5095964d5b",
+        "source_commit": "c41e9e81de9b70a84cae3d7c19102b5095964d5b",
+        "deviations": [
+          "Se usa el manifest del proyecto y su validación interna; el paper usa 12271 imágenes de entrenamiento y 3068 de test oficial. El test del proyecto permanece reservado.",
+          "Se usa ResNet18 estándar con cross entropy; no se incorpora la rama de atención ni sparse center loss del método DACL completo.",
+          "La semilla del proyecto es explícita y se solicitan algoritmos deterministas; el código público de DACL no activa determinismo por defecto.",
+          "Batch size 64; el paper indica 128 y el código público de workspace.py usa 64 por defecto.",
+          "El checkpoint se selecciona por menor pérdida de validación, no por accuracy del test.",
+          "Parada temprana por val_loss: paciencia 8, contada solo después de 0 épocas; el paper completa 60 épocas."
+        ]
+      },
+      "per_class": {
+        "surprise": {
+          "precision": 0.8588235294117647,
+          "recall": 0.8488372093023255,
+          "f1-score": 0.8538011695906432,
+          "support": 258.0
+        },
+        "fear": {
+          "precision": 0.6341463414634146,
+          "recall": 0.45614035087719296,
+          "f1-score": 0.5306122448979592,
+          "support": 57.0
+        },
+        "disgust": {
+          "precision": 0.6434782608695652,
+          "recall": 0.5138888888888888,
+          "f1-score": 0.5714285714285714,
+          "support": 144.0
+        },
+        "happiness": {
+          "precision": 0.9248197734294542,
+          "recall": 0.9403141361256544,
+          "f1-score": 0.9325025960539979,
+          "support": 955.0
+        },
+        "sadness": {
+          "precision": 0.850609756097561,
+          "recall": 0.7027707808564232,
+          "f1-score": 0.7696551724137931,
+          "support": 397.0
+        },
+        "anger": {
+          "precision": 0.7302631578947368,
+          "recall": 0.7872340425531915,
+          "f1-score": 0.757679180887372,
+          "support": 141.0
+        },
+        "neutral": {
+          "precision": 0.7445378151260504,
+          "recall": 0.8772277227722772,
+          "f1-score": 0.8054545454545454,
+          "support": 505.0
+        }
+      },
+      "checkpoint": {
+        "path": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_baseline_20261125_215652_679\\best.pt",
+        "identification_source": "evaluation.json",
+        "sha256_current_file": "a81ef3c381e3ea08dfdf5a74ca0d454bf6e3b92b1ede4ed6ab7d43adcc6346bb",
+        "sha256_recorded_at_evaluation": "a81ef3c381e3ea08dfdf5a74ca0d454bf6e3b92b1ede4ed6ab7d43adcc6346bb",
+        "matches_evaluation_hash": true
+      },
+      "sources": {
+        "config": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_baseline_20261125_215652_679\\config.json",
+        "metrics": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_baseline_20261125_215652_679\\validation\\metrics.json",
+        "history": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_baseline_20261125_215652_679\\history.csv",
+        "evaluation": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_baseline_20261125_215652_679\\validation\\evaluation.json"
+      },
+      "calibration_saved_analysis": null,
+      "cnn_ranking_eligible": true
+    },
+    {
+      "name": "resnet18_dacl_pesos_20261125_211819_252",
+      "variant": "Baseline DACL + pesos de clase; sin suavizado",
+      "run_path": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_pesos_20261125_211819_252",
+      "model_kind": "resnet18",
+      "technical_run": false,
+      "duplicate_saved_results_of": null,
+      "accuracy": 0.8327228327228328,
+      "macro_f1": 0.7641963710113181,
+      "balanced_accuracy": 0.7739519576762136,
+      "samples": 2457,
+      "split": "val",
+      "manifest_sha256": "4151a14522bf60a6ebac0508793dc86bd880c79b98581806ab93de7682bc8fc0",
+      "config_manifest_sha256": "4151a14522bf60a6ebac0508793dc86bd880c79b98581806ab93de7682bc8fc0",
+      "selected_C": null,
+      "epochs_recorded": 15,
+      "best_macro_f1_epoch": 13,
+      "best_macro_f1_history": {
+        "epoch": 13,
+        "phase": "fine_tune_all",
+        "train_loss": 0.07180888099763717,
+        "train_accuracy": 0.9692213615980432,
+        "train_macro_f1": 0.9705315764297667,
+        "val_loss": 0.5366077359051641,
+        "val_accuracy": 0.8367928367928368,
+        "val_macro_f1": 0.7689728665162587,
+        "lr_head": 0.01,
+        "lr_layer4": null,
+        "next_lr_head": 0.01,
+        "next_lr_layer4": null,
+        "lr_reduced": false
+      },
+      "selected_checkpoint_epoch_from_history": 7,
+      "selected_checkpoint_history": {
+        "epoch": 7,
+        "phase": "fine_tune_all",
+        "train_loss": 0.19787257418941587,
+        "train_accuracy": 0.9210150835711374,
+        "train_macro_f1": 0.9131862168759824,
+        "val_loss": 0.5298018049892974,
+        "val_accuracy": 0.8327228327228328,
+        "val_macro_f1": 0.7641963710113181,
+        "lr_head": 0.01,
+        "lr_layer4": null,
+        "next_lr_head": 0.01,
+        "next_lr_layer4": null,
+        "lr_reduced": false
+      },
+      "maximum_accuracy_history": {
+        "epoch": 15,
+        "phase": "fine_tune_all",
+        "train_loss": 0.05961388811511601,
+        "train_accuracy": 0.9761516510395434,
+        "train_macro_f1": 0.9726463473785838,
+        "val_loss": 0.5612209358494797,
+        "val_accuracy": 0.8416768416768416,
+        "val_macro_f1": 0.7625698476051314,
+        "lr_head": 0.01,
+        "lr_layer4": null,
+        "next_lr_head": 0.01,
+        "next_lr_layer4": null,
+        "lr_reduced": false
+      },
+      "saved_metrics_match_history_selection": true,
+      "configuration": {
+        "command": "train-dacl-baseline",
+        "architecture": "resnet18",
+        "epochs": 60,
+        "warmup_epochs": 0,
+        "batch_size": 64,
+        "seed": 42,
+        "image_size": 224,
+        "lr": 0.01,
+        "momentum": 0.9,
+        "weight_decay": 0.0005,
+        "optimizer": "SGD",
+        "scheduler": "StepLR",
+        "step_size": 20,
+        "gamma": 0.1,
+        "patience": 8,
+        "selection_metric": "val_loss",
+        "fine_tune_from": "all",
+        "fine_tune_stages": [
+          "conv1",
+          "bn1",
+          "layer1",
+          "layer2",
+          "layer3",
+          "layer4",
+          "fc"
+        ],
+        "pretrained_source": "msceleb_dacl",
+        "initialization": {
+          "source": "msceleb_dacl",
+          "dataset": "MS-Celeb-1M (según autores de DACL)",
+          "path": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\data\\pretrained\\resnet18_msceleb_dacl.pth",
+          "sha256": "734341508e3ddbcd181e40da0173cf2c77cd0de3bc2455715cc1b7f42a63a6f6",
+          "size_bytes": 181511212,
+          "source_url": "https://drive.usercontent.google.com/download?id=16uPBWtSfVOJvlxMnb0xg6sOP3-zhHsx3&export=download&confirm=t",
+          "reference_url": "https://github.com/amirhfarzaneh/dacl/blob/c41e9e81de9b70a84cae3d7c19102b5095964d5b/README.md",
+          "attribution_note": "Archivo base MSCeleb enlazado para inicialización por los autores de DACL. El SHA256 coincide con el archivo base distribuido por DAN. No se dispone de una auditoría independiente de los datos originales de preentrenamiento.",
+          "hash_note": "SHA256 fijado a la descarga observada del enlace oficial; no es un hash publicado por los autores."
+        },
+        "preprocessing_profile": "dacl_baseline",
+        "normalization": {
+          "name": "dacl_baseline",
+          "mean": [
+            0.5752,
+            0.4495,
+            0.4012
+          ],
+          "std": [
+            0.2086,
+            0.1911,
+            0.1827
+          ]
+        },
+        "class_counts_train": {
+          "surprise": 1032,
+          "fear": 224,
+          "disgust": 573,
+          "happiness": 3816,
+          "sadness": 1585,
+          "anger": 563,
+          "neutral": 2019
+        },
+        "class_weights": [
+          1.358250276854928,
+          6.25765306122449,
+          2.4462727499376715,
+          0.3673255465708296,
+          0.884362325371789,
+          2.489723420451662,
+          0.6942616571145546
+        ],
+        "class_weighting": "balanced",
+        "label_smoothing": 0.0,
+        "train_label_smoothing": 0.0,
+        "validation_label_smoothing": 0.0,
+        "train_loss_definition": "Cross entropy; ponderación=balanced; label_smoothing=0.0; media por ejemplo.",
+        "val_loss_definition": "Cross entropy sin suavizado ni pesos de clase (NLL).",
+        "precision": "float32",
+        "amp": false,
+        "amp_enabled": false,
+        "gradient_clip": null,
+        "early_stopping": true,
+        "min_epochs": 0,
+        "early_stopping_metric": "val_loss",
+        "early_stopping_mode": "min",
+        "train_samples": 9812,
+        "val_samples": 2457,
+        "test_used": false,
+        "warning": "Adaptación del baseline softmax de DACL; no es una reproducción exacta de su protocolo ni una garantía del resultado publicado.",
+        "paper_url": "https://openaccess.thecvf.com/content/WACV2021/papers/Farzaneh_Facial_Expression_Recognition_in_the_Wild_via_Deep_Attentive_Center_WACV_2021_paper.pdf",
+        "source_url": "https://github.com/amirhfarzaneh/dacl/tree/c41e9e81de9b70a84cae3d7c19102b5095964d5b",
+        "source_commit": "c41e9e81de9b70a84cae3d7c19102b5095964d5b",
+        "deviations": [
+          "Se usa el manifest del proyecto y su validación interna; el paper usa 12271 imágenes de entrenamiento y 3068 de test oficial. El test del proyecto permanece reservado.",
+          "Se usa ResNet18 estándar con cross entropy; no se incorpora la rama de atención ni sparse center loss del método DACL completo.",
+          "La semilla del proyecto es explícita y se solicitan algoritmos deterministas; el código público de DACL no activa determinismo por defecto.",
+          "Batch size 64; el paper indica 128 y el código público de workspace.py usa 64 por defecto.",
+          "El checkpoint se selecciona por menor pérdida de validación, no por accuracy del test.",
+          "Ponderación adicional de clases solo en train: N/(K*n_k), calculada con el train del manifest. El baseline publicado no usa estos pesos. Val conserva CE sin ponderación.",
+          "Parada temprana por val_loss: paciencia 8, contada solo después de 0 épocas; el paper completa 60 épocas."
+        ]
+      },
+      "per_class": {
+        "surprise": {
+          "precision": 0.8605577689243028,
+          "recall": 0.8372093023255814,
+          "f1-score": 0.8487229862475442,
+          "support": 258.0
+        },
+        "fear": {
+          "precision": 0.7380952380952381,
+          "recall": 0.543859649122807,
+          "f1-score": 0.6262626262626263,
+          "support": 57.0
+        },
+        "disgust": {
+          "precision": 0.5049019607843137,
+          "recall": 0.7152777777777778,
+          "f1-score": 0.5919540229885057,
+          "support": 144.0
+        },
+        "happiness": {
+          "precision": 0.9468546637744034,
+          "recall": 0.9141361256544502,
+          "f1-score": 0.9302077783697389,
+          "support": 955.0
+        },
+        "sadness": {
+          "precision": 0.8241469816272966,
+          "recall": 0.7909319899244333,
+          "f1-score": 0.8071979434447301,
+          "support": 397.0
+        },
+        "anger": {
+          "precision": 0.6839080459770115,
+          "recall": 0.8439716312056738,
+          "f1-score": 0.7555555555555555,
+          "support": 141.0
+        },
+        "neutral": {
+          "precision": 0.8074534161490683,
+          "recall": 0.7722772277227723,
+          "f1-score": 0.7894736842105263,
+          "support": 505.0
+        }
+      },
+      "checkpoint": {
+        "path": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_pesos_20261125_211819_252\\best.pt",
+        "identification_source": "evaluation.json",
+        "sha256_current_file": "de6f0ee7d338e7b6ebb4f9eeb30e83eaa2ff81a1d6851c9fa953a588cfb374e5",
+        "sha256_recorded_at_evaluation": "de6f0ee7d338e7b6ebb4f9eeb30e83eaa2ff81a1d6851c9fa953a588cfb374e5",
+        "matches_evaluation_hash": true
+      },
+      "sources": {
+        "config": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_pesos_20261125_211819_252\\config.json",
+        "metrics": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_pesos_20261125_211819_252\\validation\\metrics.json",
+        "history": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_pesos_20261125_211819_252\\history.csv",
+        "evaluation": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_pesos_20261125_211819_252\\validation\\evaluation.json"
+      },
+      "calibration_saved_analysis": null,
+      "cnn_ranking_eligible": true
+    },
+    {
+      "name": "resnet18_dacl_suavizado_20261125_213647_482",
+      "variant": "Baseline DACL + suavizado 0.05",
+      "run_path": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_suavizado_20261125_213647_482",
+      "model_kind": "resnet18",
+      "technical_run": false,
+      "duplicate_saved_results_of": null,
+      "accuracy": 0.8514448514448515,
+      "macro_f1": 0.7735496470853126,
+      "balanced_accuracy": 0.7520294384645487,
+      "samples": 2457,
+      "split": "val",
+      "manifest_sha256": "4151a14522bf60a6ebac0508793dc86bd880c79b98581806ab93de7682bc8fc0",
+      "config_manifest_sha256": "4151a14522bf60a6ebac0508793dc86bd880c79b98581806ab93de7682bc8fc0",
+      "selected_C": null,
+      "epochs_recorded": 15,
+      "best_macro_f1_epoch": 10,
+      "best_macro_f1_history": {
+        "epoch": 10,
+        "phase": "fine_tune_all",
+        "train_loss": 0.39282084512457865,
+        "train_accuracy": 0.9665715450468814,
+        "train_macro_f1": 0.9433842973412216,
+        "val_loss": 0.4588486151720481,
+        "val_accuracy": 0.8526658526658527,
+        "val_macro_f1": 0.7812099416327857,
+        "lr_head": 0.01,
+        "lr_layer4": null,
+        "next_lr_head": 0.01,
+        "next_lr_layer4": null,
+        "lr_reduced": false
+      },
+      "selected_checkpoint_epoch_from_history": 7,
+      "selected_checkpoint_history": {
+        "epoch": 7,
+        "phase": "fine_tune_all",
+        "train_loss": 0.4778595987359602,
+        "train_accuracy": 0.9286587851610273,
+        "train_macro_f1": 0.8849724033032645,
+        "val_loss": 0.4575848441614967,
+        "val_accuracy": 0.8514448514448515,
+        "val_macro_f1": 0.7735496470853126,
+        "lr_head": 0.01,
+        "lr_layer4": null,
+        "next_lr_head": 0.01,
+        "next_lr_layer4": null,
+        "lr_reduced": false
+      },
+      "maximum_accuracy_history": {
+        "epoch": 10,
+        "phase": "fine_tune_all",
+        "train_loss": 0.39282084512457865,
+        "train_accuracy": 0.9665715450468814,
+        "train_macro_f1": 0.9433842973412216,
+        "val_loss": 0.4588486151720481,
+        "val_accuracy": 0.8526658526658527,
+        "val_macro_f1": 0.7812099416327857,
+        "lr_head": 0.01,
+        "lr_layer4": null,
+        "next_lr_head": 0.01,
+        "next_lr_layer4": null,
+        "lr_reduced": false
+      },
+      "saved_metrics_match_history_selection": true,
+      "configuration": {
+        "command": "train-dacl-baseline",
+        "architecture": "resnet18",
+        "epochs": 60,
+        "warmup_epochs": 0,
+        "batch_size": 64,
+        "seed": 42,
+        "image_size": 224,
+        "lr": 0.01,
+        "momentum": 0.9,
+        "weight_decay": 0.0005,
+        "optimizer": "SGD",
+        "scheduler": "StepLR",
+        "step_size": 20,
+        "gamma": 0.1,
+        "patience": 8,
+        "selection_metric": "val_loss",
+        "fine_tune_from": "all",
+        "fine_tune_stages": [
+          "conv1",
+          "bn1",
+          "layer1",
+          "layer2",
+          "layer3",
+          "layer4",
+          "fc"
+        ],
+        "pretrained_source": "msceleb_dacl",
+        "initialization": {
+          "source": "msceleb_dacl",
+          "dataset": "MS-Celeb-1M (según autores de DACL)",
+          "path": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\data\\pretrained\\resnet18_msceleb_dacl.pth",
+          "sha256": "734341508e3ddbcd181e40da0173cf2c77cd0de3bc2455715cc1b7f42a63a6f6",
+          "size_bytes": 181511212,
+          "source_url": "https://drive.usercontent.google.com/download?id=16uPBWtSfVOJvlxMnb0xg6sOP3-zhHsx3&export=download&confirm=t",
+          "reference_url": "https://github.com/amirhfarzaneh/dacl/blob/c41e9e81de9b70a84cae3d7c19102b5095964d5b/README.md",
+          "attribution_note": "Archivo base MSCeleb enlazado para inicialización por los autores de DACL. El SHA256 coincide con el archivo base distribuido por DAN. No se dispone de una auditoría independiente de los datos originales de preentrenamiento.",
+          "hash_note": "SHA256 fijado a la descarga observada del enlace oficial; no es un hash publicado por los autores."
+        },
+        "preprocessing_profile": "dacl_baseline",
+        "normalization": {
+          "name": "dacl_baseline",
+          "mean": [
+            0.5752,
+            0.4495,
+            0.4012
+          ],
+          "std": [
+            0.2086,
+            0.1911,
+            0.1827
+          ]
+        },
+        "class_counts_train": {
+          "surprise": 1032,
+          "fear": 224,
+          "disgust": 573,
+          "happiness": 3816,
+          "sadness": 1585,
+          "anger": 563,
+          "neutral": 2019
+        },
+        "class_weights": null,
+        "class_weighting": "none",
+        "label_smoothing": 0.05,
+        "train_label_smoothing": 0.05,
+        "validation_label_smoothing": 0.0,
+        "train_loss_definition": "Cross entropy; ponderación=none; label_smoothing=0.05; media por ejemplo.",
+        "val_loss_definition": "Cross entropy sin suavizado ni pesos de clase (NLL).",
+        "precision": "float32",
+        "amp": false,
+        "amp_enabled": false,
+        "gradient_clip": null,
+        "early_stopping": true,
+        "min_epochs": 0,
+        "early_stopping_metric": "val_loss",
+        "early_stopping_mode": "min",
+        "train_samples": 9812,
+        "val_samples": 2457,
+        "test_used": false,
+        "warning": "Adaptación del baseline softmax de DACL; no es una reproducción exacta de su protocolo ni una garantía del resultado publicado.",
+        "paper_url": "https://openaccess.thecvf.com/content/WACV2021/papers/Farzaneh_Facial_Expression_Recognition_in_the_Wild_via_Deep_Attentive_Center_WACV_2021_paper.pdf",
+        "source_url": "https://github.com/amirhfarzaneh/dacl/tree/c41e9e81de9b70a84cae3d7c19102b5095964d5b",
+        "source_commit": "c41e9e81de9b70a84cae3d7c19102b5095964d5b",
+        "deviations": [
+          "Se usa el manifest del proyecto y su validación interna; el paper usa 12271 imágenes de entrenamiento y 3068 de test oficial. El test del proyecto permanece reservado.",
+          "Se usa ResNet18 estándar con cross entropy; no se incorpora la rama de atención ni sparse center loss del método DACL completo.",
+          "La semilla del proyecto es explícita y se solicitan algoritmos deterministas; el código público de DACL no activa determinismo por defecto.",
+          "Batch size 64; el paper indica 128 y el código público de workspace.py usa 64 por defecto.",
+          "El checkpoint se selecciona por menor pérdida de validación, no por accuracy del test.",
+          "Regularización adicional: label_smoothing=0.05 solo en train; el baseline publicado no usa suavizado. Validación conserva CE sin suavizado.",
+          "Parada temprana por val_loss: paciencia 8, contada solo después de 0 épocas; el paper completa 60 épocas."
+        ]
+      },
+      "per_class": {
+        "surprise": {
+          "precision": 0.9024390243902439,
+          "recall": 0.8604651162790697,
+          "f1-score": 0.8809523809523809,
+          "support": 258.0
+        },
+        "fear": {
+          "precision": 0.9285714285714286,
+          "recall": 0.45614035087719296,
+          "f1-score": 0.611764705882353,
+          "support": 57.0
+        },
+        "disgust": {
+          "precision": 0.6585365853658537,
+          "recall": 0.5625,
+          "f1-score": 0.6067415730337079,
+          "support": 144.0
+        },
+        "happiness": {
+          "precision": 0.9235412474849095,
+          "recall": 0.9612565445026178,
+          "f1-score": 0.9420215495125706,
+          "support": 955.0
+        },
+        "sadness": {
+          "precision": 0.7906403940886699,
+          "recall": 0.8085642317380353,
+          "f1-score": 0.7995018679950187,
+          "support": 397.0
+        },
+        "anger": {
+          "precision": 0.7197452229299363,
+          "recall": 0.8014184397163121,
+          "f1-score": 0.7583892617449665,
+          "support": 141.0
+        },
+        "neutral": {
+          "precision": 0.8170974155069582,
+          "recall": 0.8138613861386138,
+          "f1-score": 0.8154761904761905,
+          "support": 505.0
+        }
+      },
+      "checkpoint": {
+        "path": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_suavizado_20261125_213647_482\\best.pt",
+        "identification_source": "evaluation.json",
+        "sha256_current_file": "e2586ff7a32c1f53d365188fa552f45613549fbdafbf553954887297efd1358b",
+        "sha256_recorded_at_evaluation": "e2586ff7a32c1f53d365188fa552f45613549fbdafbf553954887297efd1358b",
+        "matches_evaluation_hash": true
+      },
+      "sources": {
+        "config": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_suavizado_20261125_213647_482\\config.json",
+        "metrics": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_suavizado_20261125_213647_482\\validation\\metrics.json",
+        "history": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_suavizado_20261125_213647_482\\history.csv",
+        "evaluation": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_suavizado_20261125_213647_482\\validation\\evaluation.json"
+      },
+      "calibration_saved_analysis": null,
+      "cnn_ranking_eligible": true
+    },
+    {
+      "name": "resnet18_dacl_suavizado_pesos_20261125_223554_776",
+      "variant": "Baseline DACL + suavizado 0.05 + pesos de clase",
+      "run_path": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_suavizado_pesos_20261125_223554_776",
+      "model_kind": "resnet18",
+      "technical_run": false,
+      "duplicate_saved_results_of": null,
+      "accuracy": 0.8579568579568579,
+      "macro_f1": 0.7825462525979219,
+      "balanced_accuracy": 0.7961066183593967,
+      "samples": 2457,
+      "split": "val",
+      "manifest_sha256": "4151a14522bf60a6ebac0508793dc86bd880c79b98581806ab93de7682bc8fc0",
+      "config_manifest_sha256": "4151a14522bf60a6ebac0508793dc86bd880c79b98581806ab93de7682bc8fc0",
+      "selected_C": null,
+      "epochs_recorded": 36,
+      "best_macro_f1_epoch": 35,
+      "best_macro_f1_history": {
+        "epoch": 35,
+        "phase": "fine_tune_all",
+        "train_loss": 0.47014462913827315,
+        "train_accuracy": 0.9965348552792499,
+        "train_macro_f1": 0.9962445883103701,
+        "val_loss": 0.5634906650026202,
+        "val_accuracy": 0.8555148555148555,
+        "val_macro_f1": 0.7861270562976088,
+        "lr_head": 0.001,
+        "lr_layer4": null,
+        "next_lr_head": 0.001,
+        "next_lr_layer4": null,
+        "lr_reduced": false
+      },
+      "selected_checkpoint_epoch_from_history": 28,
+      "selected_checkpoint_history": {
+        "epoch": 28,
+        "phase": "fine_tune_all",
+        "train_loss": 0.472927723813436,
+        "train_accuracy": 0.9951080309824705,
+        "train_macro_f1": 0.9943661481403786,
+        "val_loss": 0.5491539485870846,
+        "val_accuracy": 0.8579568579568579,
+        "val_macro_f1": 0.7825462525979219,
+        "lr_head": 0.001,
+        "lr_layer4": null,
+        "next_lr_head": 0.001,
+        "next_lr_layer4": null,
+        "lr_reduced": false
+      },
+      "maximum_accuracy_history": {
+        "epoch": 28,
+        "phase": "fine_tune_all",
+        "train_loss": 0.472927723813436,
+        "train_accuracy": 0.9951080309824705,
+        "train_macro_f1": 0.9943661481403786,
+        "val_loss": 0.5491539485870846,
+        "val_accuracy": 0.8579568579568579,
+        "val_macro_f1": 0.7825462525979219,
+        "lr_head": 0.001,
+        "lr_layer4": null,
+        "next_lr_head": 0.001,
+        "next_lr_layer4": null,
+        "lr_reduced": false
+      },
+      "saved_metrics_match_history_selection": true,
+      "configuration": {
+        "command": "train-dacl-baseline",
+        "architecture": "resnet18",
+        "epochs": 60,
+        "warmup_epochs": 0,
+        "batch_size": 64,
+        "seed": 42,
+        "image_size": 224,
+        "lr": 0.01,
+        "momentum": 0.9,
+        "weight_decay": 0.0005,
+        "optimizer": "SGD",
+        "scheduler": "StepLR",
+        "step_size": 20,
+        "gamma": 0.1,
+        "patience": 8,
+        "selection_metric": "val_loss",
+        "fine_tune_from": "all",
+        "fine_tune_stages": [
+          "conv1",
+          "bn1",
+          "layer1",
+          "layer2",
+          "layer3",
+          "layer4",
+          "fc"
+        ],
+        "pretrained_source": "msceleb_dacl",
+        "initialization": {
+          "source": "msceleb_dacl",
+          "dataset": "MS-Celeb-1M (según autores de DACL)",
+          "path": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\data\\pretrained\\resnet18_msceleb_dacl.pth",
+          "sha256": "734341508e3ddbcd181e40da0173cf2c77cd0de3bc2455715cc1b7f42a63a6f6",
+          "size_bytes": 181511212,
+          "source_url": "https://drive.usercontent.google.com/download?id=16uPBWtSfVOJvlxMnb0xg6sOP3-zhHsx3&export=download&confirm=t",
+          "reference_url": "https://github.com/amirhfarzaneh/dacl/blob/c41e9e81de9b70a84cae3d7c19102b5095964d5b/README.md",
+          "attribution_note": "Archivo base MSCeleb enlazado para inicialización por los autores de DACL. El SHA256 coincide con el archivo base distribuido por DAN. No se dispone de una auditoría independiente de los datos originales de preentrenamiento.",
+          "hash_note": "SHA256 fijado a la descarga observada del enlace oficial; no es un hash publicado por los autores."
+        },
+        "preprocessing_profile": "dacl_baseline",
+        "normalization": {
+          "name": "dacl_baseline",
+          "mean": [
+            0.5752,
+            0.4495,
+            0.4012
+          ],
+          "std": [
+            0.2086,
+            0.1911,
+            0.1827
+          ]
+        },
+        "class_counts_train": {
+          "surprise": 1032,
+          "fear": 224,
+          "disgust": 573,
+          "happiness": 3816,
+          "sadness": 1585,
+          "anger": 563,
+          "neutral": 2019
+        },
+        "class_weights": [
+          1.358250276854928,
+          6.25765306122449,
+          2.4462727499376715,
+          0.3673255465708296,
+          0.884362325371789,
+          2.489723420451662,
+          0.6942616571145546
+        ],
+        "class_weighting": "balanced",
+        "label_smoothing": 0.05,
+        "train_label_smoothing": 0.05,
+        "validation_label_smoothing": 0.0,
+        "train_loss_definition": "Cross entropy; ponderación=balanced; label_smoothing=0.05; media por ejemplo.",
+        "val_loss_definition": "Cross entropy sin suavizado ni pesos de clase (NLL).",
+        "precision": "float32",
+        "amp": false,
+        "amp_enabled": false,
+        "gradient_clip": null,
+        "early_stopping": true,
+        "min_epochs": 0,
+        "early_stopping_metric": "val_loss",
+        "early_stopping_mode": "min",
+        "train_samples": 9812,
+        "val_samples": 2457,
+        "test_used": false,
+        "warning": "Adaptación del baseline softmax de DACL; no es una reproducción exacta de su protocolo ni una garantía del resultado publicado.",
+        "paper_url": "https://openaccess.thecvf.com/content/WACV2021/papers/Farzaneh_Facial_Expression_Recognition_in_the_Wild_via_Deep_Attentive_Center_WACV_2021_paper.pdf",
+        "source_url": "https://github.com/amirhfarzaneh/dacl/tree/c41e9e81de9b70a84cae3d7c19102b5095964d5b",
+        "source_commit": "c41e9e81de9b70a84cae3d7c19102b5095964d5b",
+        "deviations": [
+          "Se usa el manifest del proyecto y su validación interna; el paper usa 12271 imágenes de entrenamiento y 3068 de test oficial. El test del proyecto permanece reservado.",
+          "Se usa ResNet18 estándar con cross entropy; no se incorpora la rama de atención ni sparse center loss del método DACL completo.",
+          "La semilla del proyecto es explícita y se solicitan algoritmos deterministas; el código público de DACL no activa determinismo por defecto.",
+          "Batch size 64; el paper indica 128 y el código público de workspace.py usa 64 por defecto.",
+          "El checkpoint se selecciona por menor pérdida de validación, no por accuracy del test.",
+          "Regularización adicional: label_smoothing=0.05 solo en train; el baseline publicado no usa suavizado. Validación conserva CE sin suavizado.",
+          "Ponderación adicional de clases solo en train: N/(K*n_k), calculada con el train del manifest. El baseline publicado no usa estos pesos. Val conserva CE sin ponderación.",
+          "Parada temprana por val_loss: paciencia 8, contada solo después de 0 épocas; el paper completa 60 épocas."
+        ]
+      },
+      "per_class": {
+        "surprise": {
+          "precision": 0.8650793650793651,
+          "recall": 0.8449612403100775,
+          "f1-score": 0.8549019607843137,
+          "support": 258.0
+        },
+        "fear": {
+          "precision": 0.5131578947368421,
+          "recall": 0.6842105263157895,
+          "f1-score": 0.5864661654135338,
+          "support": 57.0
+        },
+        "disgust": {
+          "precision": 0.6388888888888888,
+          "recall": 0.6388888888888888,
+          "f1-score": 0.6388888888888888,
+          "support": 144.0
+        },
+        "happiness": {
+          "precision": 0.9530916844349681,
+          "recall": 0.9361256544502617,
+          "f1-score": 0.9445324881141046,
+          "support": 955.0
+        },
+        "sadness": {
+          "precision": 0.8605898123324397,
+          "recall": 0.8085642317380353,
+          "f1-score": 0.8337662337662337,
+          "support": 397.0
+        },
+        "anger": {
+          "precision": 0.76,
+          "recall": 0.8085106382978723,
+          "f1-score": 0.7835051546391752,
+          "support": 141.0
+        },
+        "neutral": {
+          "precision": 0.8206106870229007,
+          "recall": 0.8514851485148515,
+          "f1-score": 0.8357628765792031,
+          "support": 505.0
+        }
+      },
+      "checkpoint": {
+        "path": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_suavizado_pesos_20261125_223554_776\\best.pt",
+        "identification_source": "evaluation.json",
+        "sha256_current_file": "5af033b6b3f7b6d6ce04fc9501cbc1a400ddafdb730916b84363ab87180fb778",
+        "sha256_recorded_at_evaluation": "5af033b6b3f7b6d6ce04fc9501cbc1a400ddafdb730916b84363ab87180fb778",
+        "matches_evaluation_hash": true
+      },
+      "sources": {
+        "config": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_suavizado_pesos_20261125_223554_776\\config.json",
+        "metrics": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_suavizado_pesos_20261125_223554_776\\validation\\metrics.json",
+        "history": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_suavizado_pesos_20261125_223554_776\\history.csv",
+        "evaluation": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_suavizado_pesos_20261125_223554_776\\validation\\evaluation.json"
+      },
+      "calibration_saved_analysis": null,
+      "cnn_ranking_eligible": true
+    }
+  ],
+  "excluded_incomplete_runs": [],
+  "saved_analyses": [],
+  "class_weight_experiment": {
+    "status": "results_available",
+    "results": [
+      "resnet18_dacl_pesos_20261125_211819_252"
+    ]
+  }
+}

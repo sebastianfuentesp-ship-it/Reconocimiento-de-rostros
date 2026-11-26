@@ -1,0 +1,15 @@
+{
+  "case": "D",
+  "source_checkpoint_sha256": "5af033b6b3f7b6d6ce04fc9501cbc1a400ddafdb730916b84363ab87180fb778",
+  "sha256": "7a72002b8fc806e8e51d87992d635710c9846a213248c484e638f6b613bd7924",
+  "class_names": [
+    "surprise",
+    "fear",
+    "disgust",
+    "happiness",
+    "sadness",
+    "anger",
+    "neutral"
+  ],
+  "format": "ONNX float32"
+}

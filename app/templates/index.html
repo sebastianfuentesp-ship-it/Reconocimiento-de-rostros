@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expresiones · Expresión facial</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Expresiones, inicio"><span class="brand-icon" aria-hidden="true">◡</span> Expresiones<span class="brand-dot">.</span></a>
+    <span class="local"><span></span> Procesamiento local</span>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">RECONOCIMIENTO DE PATRONES</p>
+      <h1>Explora una <em>expresión.</em></h1>
+      <p class="intro-copy">Sube una fotografía y descubre qué expresión facial reconoce el modelo.<br class="desktop-break"> Empieza con un rostro de frente y buena iluminación.</p>
+    </section>
+
+    <div class="workspace">
+      <section class="photo-panel" aria-labelledby="photo-title">
+        <div class="section-title"><h2 id="photo-title"><span>01</span> Tu fotografía</h2><span class="formats">JPG · PNG · WEBP</span></div>
+        <div id="drop-zone" class="drop-zone">
+          <div id="empty-photo" class="empty-photo">
+            <div class="portrait-mark" aria-hidden="true"><span></span></div>
+            <h3>Una foto para empezar</h3>
+            <p>Arrástrala aquí o elige un archivo de tu equipo.</p>
+            <label class="file-button" for="photo">Elegir fotografía</label>
+            <small>Hasta 12 MB · Máximo 24 megapíxeles</small>
+          </div>
+          <div id="image-stage" class="image-stage" hidden><img id="preview" alt="Vista previa de la fotografía seleccionada"><div id="boxes" class="boxes"></div></div>
+          <input id="photo" type="file" accept="image/jpeg,image/png,image/webp" class="sr-only">
+        </div>
+        <div id="file-detail" class="file-detail" hidden><span id="file-name"></span><button id="change-photo" type="button" class="text-button">Cambiar foto</button></div>
+        <label class="crop-option"><input id="cropped" type="checkbox"><span>La foto ya es un rostro recortado<small>Úsalo cuando la cara ocupe prácticamente toda la imagen.</small></span></label>
+        <div id="error" class="error" role="alert" hidden></div>
+        <button id="analyze" class="analyze-button" type="button" disabled><span id="button-text">Analizar expresión</span><span aria-hidden="true">↗</span></button>
+      </section>
+
+      <section class="results-panel" aria-labelledby="result-title">
+        <div class="section-title"><h2 id="result-title"><span>02</span> El resultado</h2><span id="result-status" class="result-status">Sin analizar</span></div>
+        <div id="result-empty" class="result-empty"><span class="spark" aria-hidden="true">✳</span><h3>Una imagen.<br>Siete posibilidades.</h3><p>La expresión estimada y sus puntuaciones aparecerán aquí.</p></div>
+        <div id="result-content" hidden>
+          <div id="face-tabs" class="face-tabs" aria-label="Seleccionar rostro"></div>
+          <p class="result-caption">EXPRESIÓN ESTIMADA</p>
+          <div class="emotion-line"><h3 id="emotion"></h3><div class="top-score"><strong id="top-score"></strong><small>puntuación</small></div></div>
+          <p id="face-description" class="face-description"></p>
+          <div class="distribution-title">Puntuaciones por expresión</div>
+          <div id="scores" class="scores"></div>
+          <p class="score-note">Las puntuaciones softmax no son una medida de certeza calibrada.</p>
+        </div>
+        <div class="result-footer"><span aria-hidden="true">↳</span><p>Estimamos una expresión visible.<br>No medimos el estado emocional interno de una persona.</p></div>
+      </section>
+    </div>
+    <footer class="page-footer"><span>Proyecto de Reconocimiento de Patrones</span><span>ResNet18 · 7 expresiones faciales</span></footer>
+    <p id="live-status" class="sr-only" aria-live="polite"></p>
+  </main>
+</body>
+</html>

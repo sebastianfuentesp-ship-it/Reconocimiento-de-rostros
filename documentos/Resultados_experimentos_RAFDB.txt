@@ -1,0 +1,71 @@
+RESULTADOS GUARDADOS DE EXPERIMENTOS RAF-DB
+Registro UTC: 2026-11-26T05:51:06.139178+00:00
+Ejecuciones con resultados guardados: 4
+Lectura de resultados existentes y hash de archivos; sin entrenamiento, inferencia ni evaluación nueva. No se mueve ni borra ningún artefacto.
+
+RESUMEN DE TODAS LAS EJECUCIONES
+Accuracy y balanced accuracy se expresan en porcentaje; F1 macro en escala 0-1.
+
+resnet18_dacl_baseline_20261125_215652_679
+Tipo: Baseline DACL; sin suavizado ni pesos de clase
+Accuracy=83.4351%; F1 macro=0.745876; balanced accuracy=73.2345%.
+Partición=val; muestras=2457; época del checkpoint según historial=4; mejor época F1=10.
+Directorio: D:\Clases\Reconocimiento de Patrones\Proyecto\artifacts\resnet18_dacl_baseline_20261125_215652_679
+Manifest SHA256: 4151a14522bf60a6ebac0508793dc86bd880c79b98581806ab93de7682bc8fc0
+Modelo: D:\Clases\Reconocimiento de Patrones\Proyecto\artifacts\resnet18_dacl_baseline_20261125_215652_679\best.pt
+SHA256 actual del modelo: a81ef3c381e3ea08dfdf5a74ca0d454bf6e3b92b1ede4ed6ab7d43adcc6346bb
+
+resnet18_dacl_pesos_20261125_211819_252
+Tipo: Baseline DACL + pesos de clase; sin suavizado
+Accuracy=83.2723%; F1 macro=0.764196; balanced accuracy=77.3952%.
+Partición=val; muestras=2457; época del checkpoint según historial=7; mejor época F1=13.
+Directorio: D:\Clases\Reconocimiento de Patrones\Proyecto\artifacts\resnet18_dacl_pesos_20261125_211819_252
+Manifest SHA256: 4151a14522bf60a6ebac0508793dc86bd880c79b98581806ab93de7682bc8fc0
+Modelo: D:\Clases\Reconocimiento de Patrones\Proyecto\artifacts\resnet18_dacl_pesos_20261125_211819_252\best.pt
+SHA256 actual del modelo: de6f0ee7d338e7b6ebb4f9eeb30e83eaa2ff81a1d6851c9fa953a588cfb374e5
+
+resnet18_dacl_suavizado_20261125_213647_482
+Tipo: Baseline DACL + suavizado 0.05
+Accuracy=85.1445%; F1 macro=0.773550; balanced accuracy=75.2029%.
+Partición=val; muestras=2457; época del checkpoint según historial=7; mejor época F1=10.
+Directorio: D:\Clases\Reconocimiento de Patrones\Proyecto\artifacts\resnet18_dacl_suavizado_20261125_213647_482
+Manifest SHA256: 4151a14522bf60a6ebac0508793dc86bd880c79b98581806ab93de7682bc8fc0
+Modelo: D:\Clases\Reconocimiento de Patrones\Proyecto\artifacts\resnet18_dacl_suavizado_20261125_213647_482\best.pt
+SHA256 actual del modelo: e2586ff7a32c1f53d365188fa552f45613549fbdafbf553954887297efd1358b
+
+resnet18_dacl_suavizado_pesos_20261125_223554_776
+Tipo: Baseline DACL + suavizado 0.05 + pesos de clase
+Accuracy=85.7957%; F1 macro=0.782546; balanced accuracy=79.6107%.
+Partición=val; muestras=2457; época del checkpoint según historial=28; mejor época F1=35.
+Directorio: D:\Clases\Reconocimiento de Patrones\Proyecto\artifacts\resnet18_dacl_suavizado_pesos_20261125_223554_776
+Manifest SHA256: 4151a14522bf60a6ebac0508793dc86bd880c79b98581806ab93de7682bc8fc0
+Modelo: D:\Clases\Reconocimiento de Patrones\Proyecto\artifacts\resnet18_dacl_suavizado_pesos_20261125_223554_776\best.pt
+SHA256 actual del modelo: 5af033b6b3f7b6d6ce04fc9501cbc1a400ddafdb730916b84363ab87180fb778
+
+RANKING CNN COMPARABLE POR F1 MACRO DEL GRUPO DE REFERENCIA
+Grupo: manifest SHA256=4151a14522bf60a6ebac0508793dc86bd880c79b98581806ab93de7682bc8fc0; partición=val; muestras=2457.
+Selección del checkpoint: val_loss; otros criterios quedan fuera del grupo.
+Otros manifiestos, particiones o tamaños de evaluación no se comparan con este grupo.
+Pruebas técnicas, HOG, réplicas exactas y registros con fallos conocidos quedan fuera.
+1. resnet18_dacl_suavizado_pesos_20261125_223554_776: accuracy=85.7957%; F1=0.782546.
+2. resnet18_dacl_suavizado_20261125_213647_482: accuracy=85.1445%; F1=0.773550.
+3. resnet18_dacl_pesos_20261125_211819_252: accuracy=83.2723%; F1=0.764196.
+4. resnet18_dacl_baseline_20261125_215652_679: accuracy=83.4351%; F1=0.745876.
+
+BASELINE DACL FRENTE A SUAVIZADO 0.05
+Mismo grupo: manifest SHA256=4151a14522bf60a6ebac0508793dc86bd880c79b98581806ab93de7682bc8fc0; partición=val; muestras=2457.
+Baseline: accuracy=83.4351%; F1=0.745876.
+Suavizado: accuracy=85.1445%; F1=0.773550.
+Cambio suavizado - baseline: +1.7094 puntos de accuracy y +0.027673 de F1 macro.
+Se mantiene el baseline sin suavizado como referencia de clasificación.
+La CE/NLL de validación es comparable: se guardó sin suavizado ni pesos en ambos ensayos.
+La pérdida de train no se compara directamente: el suavizado cambia el objetivo.
+
+NOTAS
+Los resultados son los ya guardados; una carpeta con métricas no acredita por sí sola que alcanzara todas las épocas solicitadas.
+Una réplica exacta de métricas e historial con la misma semilla no es evidencia independiente.
+Las pruebas técnicas/reducidas y HOG se conservan fuera del ranking CNN comparable.
+El ranking y las comparaciones usan solo el manifiesto, partición y número de muestras del grupo de referencia; otros protocolos se conservan sin compararlos entre sí.
+La época del checkpoint se obtiene del historial y criterio registrado; no se deserializan modelos.
+El test no se consulta; los JSON de análisis guardados se transcriben con su procedencia.
+La evaluación final B/D ya realizada se conserva por separado en Comparacion_final_test_B_D.json y .txt.

@@ -1,0 +1,22 @@
+{
+  "created_at_utc": "2026-11-26T03:53:58.979704+00:00",
+  "model_kind": "resnet18",
+  "checkpoint": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\artifacts\\resnet18_dacl_suavizado_20261125_213647_482\\best.pt",
+  "architecture": "resnet18",
+  "training_method": null,
+  "checkpoint_sha256": "e2586ff7a32c1f53d365188fa552f45613549fbdafbf553954887297efd1358b",
+  "manifest": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\data\\processed_exact\\manifest.csv",
+  "manifest_sha256": "4151a14522bf60a6ebac0508793dc86bd880c79b98581806ab93de7682bc8fc0",
+  "data_root": "D:\\Clases\\Reconocimiento de Patrones\\Proyecto\\data\\raw\\rafdb",
+  "split": "val",
+  "class_names": [
+    "surprise",
+    "fear",
+    "disgust",
+    "happiness",
+    "sadness",
+    "anger",
+    "neutral"
+  ],
+  "note": "Held-out results are for reporting; do not tune models on test results."
+}

@@ -1,0 +1,304 @@
+{
+  "scope": "Lectura de resultados e historiales guardados; sin entrenamiento, inferencia ni evaluacion de test.",
+  "selection_within_each_case": "Minimo val_loss; paciencia8",
+  "selection_between_cases": "Mayor F1 macro de validacion",
+  "samples": 2457,
+  "cases": [
+    {
+      "case": "A Baseline",
+      "run": "resnet18_dacl_baseline_20261125_215652_679",
+      "best_epoch": 4,
+      "stopped_epoch": 12,
+      "val_loss": 0.4715514969039749,
+      "train_accuracy": 0.8667957602935181,
+      "val_accuracy": 0.8343508343508343,
+      "accuracy_gap_pp": 3.2444925942683778,
+      "macro_f1": 0.7458762115324118,
+      "macro_recall": 0.7323447330537077,
+      "per_class": {
+        "surprise": {
+          "precision": 0.8588235294117647,
+          "recall": 0.8488372093023255,
+          "f1-score": 0.8538011695906432,
+          "support": 258.0
+        },
+        "fear": {
+          "precision": 0.6341463414634146,
+          "recall": 0.45614035087719296,
+          "f1-score": 0.5306122448979592,
+          "support": 57.0
+        },
+        "disgust": {
+          "precision": 0.6434782608695652,
+          "recall": 0.5138888888888888,
+          "f1-score": 0.5714285714285714,
+          "support": 144.0
+        },
+        "happiness": {
+          "precision": 0.9248197734294542,
+          "recall": 0.9403141361256544,
+          "f1-score": 0.9325025960539979,
+          "support": 955.0
+        },
+        "sadness": {
+          "precision": 0.850609756097561,
+          "recall": 0.7027707808564232,
+          "f1-score": 0.7696551724137931,
+          "support": 397.0
+        },
+        "anger": {
+          "precision": 0.7302631578947368,
+          "recall": 0.7872340425531915,
+          "f1-score": 0.757679180887372,
+          "support": 141.0
+        },
+        "neutral": {
+          "precision": 0.7445378151260504,
+          "recall": 0.8772277227722772,
+          "f1-score": 0.8054545454545454,
+          "support": 505.0
+        }
+      },
+      "last_epoch": {
+        "epoch": "12",
+        "phase": "fine_tune_all",
+        "train_loss": "0.07303415648897375",
+        "train_accuracy": "0.9783938035059111",
+        "train_macro_f1": "0.9680601353964583",
+        "val_loss": "0.5853278362319195",
+        "val_accuracy": "0.8400488400488401",
+        "val_macro_f1": "0.7553784580340465",
+        "lr_head": "0.01",
+        "lr_layer4": "",
+        "next_lr_head": "0.01",
+        "next_lr_layer4": "",
+        "lr_reduced": "False"
+      },
+      "checkpoint_sha256": "a81ef3c381e3ea08dfdf5a74ca0d454bf6e3b92b1ede4ed6ab7d43adcc6346bb"
+    },
+    {
+      "case": "B Suavizado",
+      "run": "resnet18_dacl_suavizado_20261125_213647_482",
+      "best_epoch": 7,
+      "stopped_epoch": 15,
+      "val_loss": 0.4575848441614967,
+      "train_accuracy": 0.9286587851610273,
+      "val_accuracy": 0.8514448514448515,
+      "accuracy_gap_pp": 7.72139337161758,
+      "macro_f1": 0.7735496470853126,
+      "macro_recall": 0.7520294384645487,
+      "per_class": {
+        "surprise": {
+          "precision": 0.9024390243902439,
+          "recall": 0.8604651162790697,
+          "f1-score": 0.8809523809523809,
+          "support": 258.0
+        },
+        "fear": {
+          "precision": 0.9285714285714286,
+          "recall": 0.45614035087719296,
+          "f1-score": 0.611764705882353,
+          "support": 57.0
+        },
+        "disgust": {
+          "precision": 0.6585365853658537,
+          "recall": 0.5625,
+          "f1-score": 0.6067415730337079,
+          "support": 144.0
+        },
+        "happiness": {
+          "precision": 0.9235412474849095,
+          "recall": 0.9612565445026178,
+          "f1-score": 0.9420215495125706,
+          "support": 955.0
+        },
+        "sadness": {
+          "precision": 0.7906403940886699,
+          "recall": 0.8085642317380353,
+          "f1-score": 0.7995018679950187,
+          "support": 397.0
+        },
+        "anger": {
+          "precision": 0.7197452229299363,
+          "recall": 0.8014184397163121,
+          "f1-score": 0.7583892617449665,
+          "support": 141.0
+        },
+        "neutral": {
+          "precision": 0.8170974155069582,
+          "recall": 0.8138613861386138,
+          "f1-score": 0.8154761904761905,
+          "support": 505.0
+        }
+      },
+      "last_epoch": {
+        "epoch": "15",
+        "phase": "fine_tune_all",
+        "train_loss": "0.3239201390398214",
+        "train_accuracy": "0.9920505503465145",
+        "train_macro_f1": "0.9864850995542819",
+        "val_loss": "0.47362773031251043",
+        "val_accuracy": "0.8494098494098494",
+        "val_macro_f1": "0.7662158968598068",
+        "lr_head": "0.01",
+        "lr_layer4": "",
+        "next_lr_head": "0.01",
+        "next_lr_layer4": "",
+        "lr_reduced": "False"
+      },
+      "checkpoint_sha256": "e2586ff7a32c1f53d365188fa552f45613549fbdafbf553954887297efd1358b"
+    },
+    {
+      "case": "C Pesos",
+      "run": "resnet18_dacl_pesos_20261125_211819_252",
+      "best_epoch": 7,
+      "stopped_epoch": 15,
+      "val_loss": 0.5298018049892974,
+      "train_accuracy": 0.9210150835711374,
+      "val_accuracy": 0.8327228327228328,
+      "accuracy_gap_pp": 8.829225084830462,
+      "macro_f1": 0.7641963710113181,
+      "macro_recall": 0.7739519576762136,
+      "per_class": {
+        "surprise": {
+          "precision": 0.8605577689243028,
+          "recall": 0.8372093023255814,
+          "f1-score": 0.8487229862475442,
+          "support": 258.0
+        },
+        "fear": {
+          "precision": 0.7380952380952381,
+          "recall": 0.543859649122807,
+          "f1-score": 0.6262626262626263,
+          "support": 57.0
+        },
+        "disgust": {
+          "precision": 0.5049019607843137,
+          "recall": 0.7152777777777778,
+          "f1-score": 0.5919540229885057,
+          "support": 144.0
+        },
+        "happiness": {
+          "precision": 0.9468546637744034,
+          "recall": 0.9141361256544502,
+          "f1-score": 0.9302077783697389,
+          "support": 955.0
+        },
+        "sadness": {
+          "precision": 0.8241469816272966,
+          "recall": 0.7909319899244333,
+          "f1-score": 0.8071979434447301,
+          "support": 397.0
+        },
+        "anger": {
+          "precision": 0.6839080459770115,
+          "recall": 0.8439716312056738,
+          "f1-score": 0.7555555555555555,
+          "support": 141.0
+        },
+        "neutral": {
+          "precision": 0.8074534161490683,
+          "recall": 0.7722772277227723,
+          "f1-score": 0.7894736842105263,
+          "support": 505.0
+        }
+      },
+      "last_epoch": {
+        "epoch": "15",
+        "phase": "fine_tune_all",
+        "train_loss": "0.05961388811511601",
+        "train_accuracy": "0.9761516510395434",
+        "train_macro_f1": "0.9726463473785838",
+        "val_loss": "0.5612209358494797",
+        "val_accuracy": "0.8416768416768416",
+        "val_macro_f1": "0.7625698476051314",
+        "lr_head": "0.01",
+        "lr_layer4": "",
+        "next_lr_head": "0.01",
+        "next_lr_layer4": "",
+        "lr_reduced": "False"
+      },
+      "checkpoint_sha256": "de6f0ee7d338e7b6ebb4f9eeb30e83eaa2ff81a1d6851c9fa953a588cfb374e5"
+    },
+    {
+      "case": "D Suavizado y pesos",
+      "run": "resnet18_dacl_suavizado_pesos_20261125_223554_776",
+      "best_epoch": 28,
+      "stopped_epoch": 36,
+      "val_loss": 0.5491539485870846,
+      "train_accuracy": 0.9951080309824705,
+      "val_accuracy": 0.8579568579568579,
+      "accuracy_gap_pp": 13.715117302561254,
+      "macro_f1": 0.7825462525979219,
+      "macro_recall": 0.7961066183593967,
+      "per_class": {
+        "surprise": {
+          "precision": 0.8650793650793651,
+          "recall": 0.8449612403100775,
+          "f1-score": 0.8549019607843137,
+          "support": 258.0
+        },
+        "fear": {
+          "precision": 0.5131578947368421,
+          "recall": 0.6842105263157895,
+          "f1-score": 0.5864661654135338,
+          "support": 57.0
+        },
+        "disgust": {
+          "precision": 0.6388888888888888,
+          "recall": 0.6388888888888888,
+          "f1-score": 0.6388888888888888,
+          "support": 144.0
+        },
+        "happiness": {
+          "precision": 0.9530916844349681,
+          "recall": 0.9361256544502617,
+          "f1-score": 0.9445324881141046,
+          "support": 955.0
+        },
+        "sadness": {
+          "precision": 0.8605898123324397,
+          "recall": 0.8085642317380353,
+          "f1-score": 0.8337662337662337,
+          "support": 397.0
+        },
+        "anger": {
+          "precision": 0.76,
+          "recall": 0.8085106382978723,
+          "f1-score": 0.7835051546391752,
+          "support": 141.0
+        },
+        "neutral": {
+          "precision": 0.8206106870229007,
+          "recall": 0.8514851485148515,
+          "f1-score": 0.8357628765792031,
+          "support": 505.0
+        }
+      },
+      "last_epoch": {
+        "epoch": "36",
+        "phase": "fine_tune_all",
+        "train_loss": "0.4700456409127772",
+        "train_accuracy": "0.9973501834488382",
+        "train_macro_f1": "0.9972623046124911",
+        "val_loss": "0.5626239039134242",
+        "val_accuracy": "0.8522588522588522",
+        "val_macro_f1": "0.7752129578012367",
+        "lr_head": "0.001",
+        "lr_layer4": "",
+        "next_lr_head": "0.001",
+        "next_lr_layer4": "",
+        "lr_reduced": "False"
+      },
+      "checkpoint_sha256": "5af033b6b3f7b6d6ce04fc9501cbc1a400ddafdb730916b84363ab87180fb778"
+    }
+  ],
+  "best_macro_f1_case": "D Suavizado y pesos",
+  "lowest_validation_loss_case": "B Suavizado",
+  "overfitting_assessment": "D mantiene una brecha grande train/val y empeora val_loss de epoca28 a36 mientras mejora train; no elimino el sobreajuste. La comparacion del error de clasificacion aun favorece D en F1 macro, accuracy y recall macro.",
+  "limits": [
+    "Train accuracy se acumula durante aprendizaje con aumentos; val usa modo eval y recorte fijo. No son dos evaluaciones identicas.",
+    "Train loss tiene objetivos distintos por caso: no comparar directamente con val_loss sin pesos ni suavizado.",
+    "Una semilla y validacion usada para seleccion; no se afirma significacion ni superioridad en test."
+  ]
+}

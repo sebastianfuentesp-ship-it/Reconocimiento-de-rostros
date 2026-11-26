@@ -1,0 +1,38 @@
+COMPARACION FINAL TEST B Y D
+
+Mismas3067 imagenes del test oficial depurado.
+Checkpoints seleccionados previamente por menor val_loss. Sin entrenamiento nuevo.
+
+B: accuracy=83.8604%; F1macro=0.754298; recallmacro=73.8237%; CEtest=0.473949.
+resnet18_dacl_suavizado_20261125_213647_482
+D: accuracy=84.6756%; F1macro=0.767331; recallmacro=78.4731%; CEtest=0.564463.
+resnet18_dacl_suavizado_pesos_20261125_223554_776
+
+PRECISION / RECALL / F1 POR CLASE EN TEST
+surprise
+  B: precision=0.853035, recall=0.811550, F1=0.831776, n=329
+  D: precision=0.855385, recall=0.844985, F1=0.850153, n=329
+fear
+  B: precision=0.837209, recall=0.486486, F1=0.615385, n=74
+  D: precision=0.475248, recall=0.648649, F1=0.548571, n=74
+disgust
+  B: precision=0.582734, recall=0.506250, F1=0.541806, n=160
+  D: precision=0.584699, recall=0.668750, F1=0.623907, n=160
+happiness
+  B: precision=0.928989, recall=0.938397, F1=0.933669, n=1185
+  D: precision=0.944444, recall=0.918143, F1=0.931108, n=1185
+sadness
+  B: precision=0.764591, recall=0.822176, F1=0.792339, n=478
+  D: precision=0.838202, recall=0.780335, F1=0.808234, n=478
+anger
+  B: precision=0.717514, recall=0.783951, F1=0.749263, n=162
+  D: precision=0.755952, recall=0.783951, F1=0.769697, n=162
+neutral
+  B: precision=0.812865, recall=0.818851, F1=0.815847, n=679
+  D: precision=0.831169, recall=0.848306, F1=0.839650, n=679
+
+Ganador descriptivo por F1macro:test D.
+Comparacion pareada: {'both_correct': 2434, 'only_B_correct': 138, 'only_D_correct': 163, 'both_wrong': 332}
+ICbootstrap95% diferencia F1macro D-B: [-0.007332730638447441, 0.034022198965439045]
+Intervalo orientativo de remuestreo de imagenes; no prueba superioridad universal.
+Test is now consulted. Do not tune further hyperparameters or checkpoints using these scores.

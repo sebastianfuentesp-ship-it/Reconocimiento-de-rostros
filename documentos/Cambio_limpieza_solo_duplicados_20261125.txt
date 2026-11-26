@@ -1,0 +1,9 @@
+DATOS ACTIVOS - 25/11/2026
+
+Manifiesto: data/processed_exact/manifest.csv
+SHA256: 4151a14522bf60a6ebac0508793dc86bd880c79b98581806ab93de7682bc8fc0
+9812 train / 2457 val / 3067 test reservado.
+15336 imagenes retenidas de 15339. Solo 3 duplicados exactos excluidos.
+Las 531 fotos antes apartadas por similitud se conservan.
+No se agrupa ni excluye por dHash. Archivos originales intactos.
+Resultados del protocolo anterior apartados en: D:\Clases\Reconocimiento de Patrones\Archivo_Proyecto_protocolo_anterior_20261125_211306_591

@@ -1,0 +1,13 @@
+{
+  "case": "D",
+  "name": "ResNet18 con suavizado y pesos por clase",
+  "checkpoint": "artifacts/resnet18_dacl_suavizado_pesos_20261125_223554_776/best.pt",
+  "sha256": "5af033b6b3f7b6d6ce04fc9501cbc1a400ddafdb730916b84363ab87180fb778",
+  "selected_epoch": 28,
+  "selection_within_run": "min_val_loss",
+  "reason": "Mayor F1 macro observado entre B y D en el test depurado. Ventaja no concluyente estadisticamente.",
+  "test_samples": 3067,
+  "test_accuracy": 0.8467557874144115,
+  "test_macro_f1": 0.7673314903902513,
+  "test_macro_recall": 0.7847312270222443
+}

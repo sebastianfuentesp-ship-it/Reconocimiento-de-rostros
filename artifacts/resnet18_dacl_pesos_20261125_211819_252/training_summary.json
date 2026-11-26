@@ -1,0 +1,12 @@
+{
+  "requested_epochs": 60,
+  "completed_epochs": 15,
+  "best_epoch": 7,
+  "best_score": 0.5298018049892974,
+  "selection_metric": "val_loss",
+  "stopped_early": true,
+  "stop_reason": "early_stopping",
+  "stopped_epoch": 15,
+  "patience": 8,
+  "min_epochs": 0
+}

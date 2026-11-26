@@ -1,0 +1,35 @@
+APLICACION LOCAL: SUBIR UNA FOTO Y ESTIMAR SU EXPRESION
+
+1. Abre esta carpeta completa en Visual Studio Code:
+   D:\Clases\Reconocimiento de Patrones\Proyecto
+
+2. En su terminal ejecuta:
+   .\.venv\Scripts\python.exe ejecutar.py
+
+   Tambien puedes pulsar F5 y elegir "Abrir aplicacion de fotografias".
+
+3. Se abre http://127.0.0.1:5000
+   Elige una foto JPG, PNG o WEBP y pulsa "Analizar expresion".
+   Se muestran el rostro, su expresion estimada y las siete puntuaciones.
+   Si la foto ya contiene una cara recortada, marca la casilla correspondiente.
+   Para cerrar la aplicacion: Ctrl+C en la terminal.
+
+Se utiliza el modelo D ya entrenado, epoca 28. Abrir la aplicacion no entrena.
+El checkpoint se fija en config/modelo_aplicacion.json y se verifica con SHA256.
+Las fotos se procesan en memoria en este equipo, sin guardarse ni enviarse afuera.
+Usa fotos frontales con buena luz. La primera prediccion carga el modelo y tarda mas.
+
+ORGANIZACION
+  app/                              interfaz y servidor web
+  src/emotion_recognition/           modelo, datos, entrenamiento e inferencia
+  config/modelo_aplicacion.json      seleccion fija del modelo final
+  artifacts/                        checkpoints, curvas y metricas conservados
+  documentos/                       comparaciones y resultados finales
+
+RESULTADOS TEST YA MEDIDOS, 3067 IMAGENES
+  B: accuracy 83.86%; F1 macro 0.754298; recall macro 73.82%.
+  D: accuracy 84.68%; F1 macro 0.767331; recall macro 78.47%.
+  D se usa por su mayor F1 observado; la diferencia no es concluyente.
+  El test ya se consulto. No se ajustan nuevos hiperparametros con sus resultados.
+
+Guia completa, recetas de entrenamiento y explicacion del codigo: README.md.
